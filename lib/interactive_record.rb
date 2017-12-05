@@ -53,8 +53,10 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(attribute)
-    
+  def self.find_by(options)
+    options.each do |attribute_key, attribute_value|
+      sql = "SELECT * FROM #{self.table_name} WHERE #{self.send(attribute_key)} = '#{self.send(attribute_value)}'"
+    end
   end
 
 end
