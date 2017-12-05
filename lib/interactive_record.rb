@@ -57,7 +57,7 @@ class InteractiveRecord
     options.each do |attribute_key, attribute_value|
       sql = "SELECT * FROM #{self.table_name} WHERE #{self.send(attribute_key)} = '#{self.send(attribute_value)}'"
     end.first
-
+    puts sql
     row = DB[:conn].execute(sql)
   end
 
