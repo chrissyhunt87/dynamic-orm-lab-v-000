@@ -58,7 +58,7 @@ class InteractiveRecord
       sql = "SELECT * FROM #{self.table_name} WHERE #{self.send(attribute_key)} = '#{self.send(attribute_value)}'"
     end.first
 
-    
+    DB[:conn].execute(sql)
   end
 
 end
